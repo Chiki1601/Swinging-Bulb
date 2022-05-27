@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,900&display=swap");
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #09161e;
+}
+
+.chain {
+  height: 30px;
+  width: 5px;
+  border: 3px solid #153345;
+  position: relative;
+  transform-origin: top center;
+  animation: swing 2s ease-in-out infinite;
+  border-radius: 8px;
+}
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+.chain > .chain {
+  position: absolute;
+  top: 100%;
+  left: -500%;
+  right: -500%;
+  margin: auto;
+}
+.chain .light {
+  --lightHeight: 25px;
+  height: var(--lightHeight);
+  width: calc(var(--lightHeight) * 2);
+  background-color: #ecd749;
+  position: absolute;
+  left: -500%;
+  right: -500%;
+  margin: auto;
+  transform-style: preserve-3d;
+  border-radius: 50px/25px;
+  top: 100%;
+  box-shadow: 0px 10px 10px #ecd749, 0px 10px 20px #ecd749, 0px 10px 30px #ecd749, 0px 5px 40px #ecd749, 0px 5px 50px #ecd749;
+}
+.chain .light::before {
+  content: "";
+  position: absolute;
+  height: calc(var(--lightHeight) * 3);
+  width: 90%;
+  background-color: #153345;
+  bottom: -30%;
+  left: -500%;
+  right: -500%;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform-origin: top;
+  border-top-left-radius: calc(var(--lightHeight));
+  border-top-right-radius: calc(var(--lightHeight));
+  border-bottom-left-radius: calc(Var(--lightHeight) * 0.25);
+  border-bottom-right-radius: calc(Var(--lightHeight) * 0.25);
+  transform: perspective(200px) translateY(1px) rotateX(65deg);
+}
+.chain .light .focus {
+  position: relative;
+  top: 30%;
+  margin: auto;
+  width: 50px;
+  height: calc(var(--lightHeight) * 6);
+  transform-style: preserve-3d;
+  transform-origin: top;
+  transform: perspective(200px) translateY(1px) rotateX(65deg);
+  background-image: linear-gradient(-180deg, rgba(236, 215, 73, 0.25) 5%, rgba(0, 0, 0, 0) 95%);
+}
+
+/* ======================================= */
+.otherPens {
+  display: inline-flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  font-family: "Roboto Flex", sans-serif;
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: #ecd749;
+  color: #000000;
+  animation: shadow 1s ease-in-out infinite;
+  text-transform: uppercase;
+}
+
+@keyframes shadow {
+  0%, 100% {
+    box-shadow: 0px 2px 10px #ecd749;
+  }
+  50% {
+    box-shadow: 0px 2px 5px #ecd749;
+  }
+}
